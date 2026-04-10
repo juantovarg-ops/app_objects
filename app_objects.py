@@ -5,7 +5,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, date
 import time
-import pandas as pd
 
 # Configuración de la página
 st.set_page_config(
@@ -973,4 +972,4 @@ st.sidebar.info("""
 """)
 
 st.sidebar.success("¡Explora cada sección para aprender más!")
-st.sidebar.success(pd.__version__)
+st.sidebar.success(f"Pandas versión: {pd.__version__}")
