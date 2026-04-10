@@ -6,6 +6,11 @@ import plotly.graph_objects as go
 from datetime import datetime, date
 import time
 
+import platform
+import os
+import psutil
+import socket
+
 # Configuración de la página
 st.set_page_config(
     page_title="Guía de Componentes Streamlit",
@@ -972,4 +977,10 @@ st.sidebar.info("""
 """)
 
 st.sidebar.success("¡Explora cada sección para aprender más!")
-st.sidebar.success(f"Pandas versión: {pd.__version__}")
+st.sidebar.success(f"Sistema operativo: {platform.system()}")
+mem = psutil.virtual_memory()
+st.write(f"Memoria Total: {mem.total / (1024**3):.2f} GB")
+st.sidebar.success(f"Núcleos físicos: {psutil.cpu_count(logical=False)}")
+disk = psutil.disk_usage('/')
+st.sidebar.success(f"Total Storage: {disk.total / (1024**3):.2f} GB")
+st.sidebar.success(f"Pandas: {pd.__version__}")
